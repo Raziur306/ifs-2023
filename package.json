@@ -1,0 +1,24 @@
+{
+  "name": "ifs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.10.7",
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
+    "@types/node": "^18.15.13",
+    "next": "^13.3.0"
+  },
+  "devDependencies": {
+    "typescript": "5.0.4"
+  }
+}

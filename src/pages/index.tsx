@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Brand from './brand'
 import { Box, Typography } from '@mui/material'
 import Link from 'next/link'
+import ResponsiveDrawer from './components/ResponsiveDrawer'
 
 export default function Home() {
   return (
@@ -14,11 +15,12 @@ export default function Home() {
       </Head>
       <main>
 
+      
 
-        <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
-            <Typography sx={{textAlign:"center", color:'white'}} variant="h1" >Welcome</Typography>
-            <Link style={{color:'white', textAlign:'center'}} href={'/dashboard'}>Dashboard</Link>
-        </Box>
+
+
+
+
 
       </main>
     </>

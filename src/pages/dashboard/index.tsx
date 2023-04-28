@@ -1,12 +1,12 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import Brand from '../brand/index'
+import ResponsiveDrawer from '../components/ResponsiveDrawer'
 
 function index() {
   return (
-    <Layout>
-       <Brand/>
-   </Layout>
+     <ResponsiveDrawer>
+          <Brand/>
+     </ResponsiveDrawer>
   )
 }
 

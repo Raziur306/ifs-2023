@@ -26,6 +26,7 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
+
   },
   typography: {
     fontFamily: montserrat.style.fontFamily,

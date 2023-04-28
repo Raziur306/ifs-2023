@@ -10,9 +10,7 @@ import theme from '@/theme';
 function Brand() {
 
   return (
-    <Box sx={{[theme.breakpoints.up('sm')]:{
-      ml:'240px'
-    }, p:5}} >
+    <Box sx={{p:5}} >
       <Typography  align='center' color={'white'} variant='h3' >Brands and Franchisors</Typography>
       <Box sx={{mt:10}}>
         <Box  sx={{mb: 5,display:'flex', flexDirection:'row', alignItems:'center'}}>

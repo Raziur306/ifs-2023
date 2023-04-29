@@ -7,16 +7,15 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import Link from 'next/link';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import theme from '@/theme';
-import {MenuListItem, TopBarItem} from '../components/drawerStyle'
-import { isUndefined } from 'util';
-
+import {StyledCustomDrawer, MenuListItem, TopBarItem} from './drawerStyle'
 
 
 const drawerWidth = 240;
 
 interface Props {
   window?: () => Window;
-  children:React.ReactNode
+  children:React.ReactNode;
+  onDrawerSelected:Function;
 }
 
 
@@ -27,8 +26,6 @@ export default function ResponsiveDrawer(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-
 
 
   const menuItem = [
@@ -46,27 +43,27 @@ export default function ResponsiveDrawer(props: Props) {
   const [drawerActiveItem, setDrawerActiveItem] = useState(0);
   const handleOnDrawerItemClick = (index:number)=>{
     setDrawerActiveItem(index);
-    console.log(index);
-
+    props.onDrawerSelected(index);
   }
 
-const container = window !== undefined ? () => window().document.body : undefined;
+
+// const container = window !== undefined ? () => window().document.body : undefined;
 const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 
   const drawer = (
-    <Box sx={{ bgcolor:theme.palette.primary.main,padding: '15px', }}>
-      <Box component={'img'} sx={{width:'180px', height:'180px', borderRadius:'25px',display:'flex', verticalAlign:'center',margin:'auto'}} alt='Web Logo' src='/logo.svg' />
+   <Box sx={{pt:1.5}}>
+   <Box component={'img'} sx={{width:'180px', height:'180px', borderRadius:'25px',display:'flex', verticalAlign:'center',margin:'auto'}} alt='Web Logo' src='/logo.svg' />
       <List>
         {menuItem.map((item, index) => (
-          <Link style={{textDecoration:'none',margin:'22px'}} href={`/${item.link}`}>
-            <MenuListItem selected={drawerActiveItem === index}  onClick={()=>{handleOnDrawerItemClick(index)}}>
+            <MenuListItem key={index} sx={{m:2.5}}  selected={drawerActiveItem === index}  onClick={()=>{handleOnDrawerItemClick(index)}}>
               <ListItemText sx={{textAlign:'center'}} primary={item.title} />
           </MenuListItem> 
-           </Link>
+       
         ))}
       </List>
-    </Box>
+      </Box>
+  
   );
 
   
@@ -137,7 +134,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        <Drawer
+        <StyledCustomDrawer
           variant={isMobile?"temporary" : "permanent"}
           open = {isMobile? mobileOpen : true }
           onClose={isMobile?handleDrawerToggle : undefined }
@@ -153,7 +150,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
           }
         } >
           {drawer}
-        </Drawer>
+        </StyledCustomDrawer>
       </Box>
       <Box
         component="main"

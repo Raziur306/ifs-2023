@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import theme from '@/theme';
-import { MenuItem, ListItemButton } from '@mui/material';
+import { MenuItem, ListItemButton, Drawer,  } from '@mui/material';
 
 
 //menu item
@@ -19,9 +19,12 @@ export const MenuListItem = styled(ListItemButton)({
         boxShadow: 'inset -6.22302px -6.22302px 6.22302px #3B4451, inset 3.73381px 3.73381px 6.22302px #000000',
     },
     '&.Mui-selected': {
-        background: theme.palette.secondary.main
+        background: theme.palette.secondary.main,
+        '&:hover':{
+            background:theme.palette.secondary.main,
+            boxShadow:'none'
+        }
     }
-
 });
 
 export const TopBarItem = styled(MenuItem)({
@@ -39,6 +42,31 @@ export const TopBarItem = styled(MenuItem)({
     '&.Mui-selected': {
         background: theme.palette.secondary.main
     }
+})
+
+
+
+
+
+//custom drawer
+
+
+export const  StyledCustomDrawer = styled(Drawer)({
+    scrollbarWidth:'thin',
+    scrollbarColor: 'rgba(155, 155, 155, 0.5) rgba(255, 255, 255, 0.2)',
+     '& .MuiPaper-root::-webkit-scrollbar': {
+    width: '6px',
+  },
+'& .MuiPaper-root::-webkit-scrollbar-track': {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  '& .MuiPaper-root::-webkit-scrollbar-thumb': {
+    backgroundColor: 'rgba(155, 155, 155, 0.5)',
+    borderRadius: '6px',
+    '&:hover': {
+      backgroundColor: 'rgba(155, 155, 155, 0.7)',
+    },
+  },
 })
 
 

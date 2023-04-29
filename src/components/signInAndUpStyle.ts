@@ -68,6 +68,7 @@ width:'394px',
 height:'51px',
 fontStyle: 'normal',
 fontWeight: 700,
+textTransform:'none',
 fontSize: '18px',
 lineHeight: '25px',
 color:'white',
@@ -77,4 +78,15 @@ color:'white',
 })
 
 
+
+export const StyledLinkBtn = styled(Button)({
+    background:'none',
+    color:theme.palette.secondary.main,
+    textTransform:'none',
+    fontWeight: 400,
+    fontSize: '18px',
+    '&:hover':{
+        textDecoration:'underline'
+    },
+})
 

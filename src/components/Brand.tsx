@@ -1,7 +1,7 @@
 import React from 'react'
 import{Grid,Typography, Button, Avatar,Box, Container, Link as MuiLink, ListItemButton} from '@mui/material'
-import BrandCard from '../components/BrandCard'
-import BrandCardWithLogo from '../components/BrandCardWithLogo'
+import BrandCard from './BrandCard'
+import BrandCardWithLogo from './BrandCardWithLogo'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LaunchIcon from '@mui/icons-material/Launch';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';

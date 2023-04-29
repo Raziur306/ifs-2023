@@ -1,23 +1,33 @@
 import React,{useState} from 'react'
-import {Input, Link, Box, Typography} from '@mui/material'
-import {StyledSubmitBtn,StyledTextField ,StyledBox, StyledContainer,StyledButton,ButtonBox} from '../components/signInAndUpStyle'
+import {Input, Link, Box, Typography,Button} from '@mui/material'
+import {StyledLinkBtn,StyledSubmitBtn,StyledTextField ,StyledBox, StyledContainer,StyledButton,ButtonBox} from '@/components/signInAndUpStyle';
 import theme from '@/theme'
 import { useRouter } from 'next/router';
-function index() {
+function SignUp() {
 
 
 const [selctedBtn, setButtonState] = useState(0);
 const router = useRouter();
 
-const handleOnSignInClick = ()=>{
-    router.push('/dashboard');
+const handleSignUpClick = ()=>{
+    localStorage.setItem('loggedIn','1')
+    router.replace('/');
 }
+
+const handleSignInClick = ()=>{
+    router.replace('sign_in');
+}
+
 
   return (
     <StyledContainer >
         <StyledBox>
             <Typography fontWeight={'bold'} variant='h4'>Sign Up</Typography>
-            <Typography>Already have an account? <Link sx={{color:theme.palette.secondary.main}} href='sign_in'>Sign in</Link> </Typography>
+            <Typography>Already have an account?
+                 <StyledLinkBtn disableRipple variant="text" 
+                 onClick={handleSignInClick}>Sign In
+                 </StyledLinkBtn>
+            </Typography>
             <ButtonBox>
                 <StyledButton className={selctedBtn===0?'active':'undefine'}  
                 onClick={()=>{
@@ -37,7 +47,7 @@ const handleOnSignInClick = ()=>{
             <StyledTextField type='text' disableUnderline placeholder='Name'/>
             <StyledTextField type='email' disableUnderline placeholder='Email'/>
             <StyledTextField type='password' disableUnderline placeholder='Password'/>
-            <StyledSubmitBtn onClick={handleOnSignInClick}>Sign in</StyledSubmitBtn>
+            <StyledSubmitBtn onClick={handleSignUpClick}>Sign up</StyledSubmitBtn>
 
             <Box sx={{display:'flex', gap:'10px'}}> <Input type='checkbox'/> I have read and aree to the <Link sx={{color:theme.palette.secondary.main}} href='#'>Terms of Service</Link></Box>
 
@@ -47,4 +57,4 @@ const handleOnSignInClick = ()=>{
   )
 }
 
-export default index
+export default SignUp

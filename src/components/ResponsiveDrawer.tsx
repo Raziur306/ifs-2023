@@ -7,7 +7,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import Link from 'next/link';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import theme from '@/theme';
-import {StyledCustomDrawer, MenuListItem, TopBarItem} from './drawerStyle'
+import {ExtendedMenuStyledBtn,StyledCustomDrawer, MenuListItem, TopBarItem, TopbarButton, ExtendedMenuBox, ExtendedMenuContainer} from './drawerStyle'
 
 
 const drawerWidth = 240;
@@ -22,6 +22,8 @@ interface Props {
 export default function ResponsiveDrawer(props: Props) {
   const { window, children} = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [extendedMenuState, setExtnededMenuState] = useState(false);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -111,21 +113,36 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
               </TopBarItem></Link>
               
 
-              <TopBarItem>
+           
+           
+              <TopbarButton>
              <NotificationsNoneOutlinedIcon/>
-              </TopBarItem>
-            
-
-            
-               <Avatar  alt="User Avatar" src="/static/images/avatar/1.jpg" />
-            
+              </TopbarButton>
 
 
-             <Link style={{textDecoration:'none' , margin:'auto'}} href='#' >
-             <TopBarItem>
+ <Avatar  alt="User Avatar" src="/static/images/avatar/1.jpg" />
+          
+          
+        
+          <ExtendedMenuContainer>
+             <TopbarButton onClick={()=>{
+              setExtnededMenuState(!extendedMenuState)
+             }}>
               Nadhif<KeyboardArrowDownOutlinedIcon/>
-            </TopBarItem>
-            </Link>
+            </TopbarButton>
+
+
+
+
+            <ExtendedMenuBox visibility={extendedMenuState?'visible':'hidden'} >
+              <ExtendedMenuStyledBtn >Edit username</ExtendedMenuStyledBtn>
+              <ExtendedMenuStyledBtn>My Settings</ExtendedMenuStyledBtn>
+              <ExtendedMenuStyledBtn>Edit Contact Info</ExtendedMenuStyledBtn>
+              <ExtendedMenuStyledBtn>Logout</ExtendedMenuStyledBtn>
+            </ExtendedMenuBox>
+            </ExtendedMenuContainer>
+
+
           </Box>
         </Toolbar>
       </AppBar>

@@ -8,7 +8,7 @@ const FranchiseCard = (props:{title:string, icon:string})=> {
 
 
     return (
-    <Box sx={{display:'flex', flexDirection:'column',gap:5, alignItems:'center',minWidth:'439px', p:5, bgcolor:theme.palette.secondary.main, 
+    <Box sx={{display:'flex', flexDirection:'column',gap:5, alignItems:'center',minWidth:'439px', p:4, bgcolor:theme.palette.secondary.main, 
       boxShadow:'7px 7px 10px rgba(16, 16, 18, 0.75), -7px -7px 30px #262E32',
       borderRadius:'24px'
     }}>

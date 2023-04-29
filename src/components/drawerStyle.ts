@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import theme from '@/theme';
-import { MenuItem, ListItemButton, Drawer,  } from '@mui/material';
+import {Box, MenuItem, ListItemButton, Drawer, Button,  } from '@mui/material';
 
 
 //menu item
@@ -44,6 +44,21 @@ export const TopBarItem = styled(MenuItem)({
     }
 })
 
+export const TopbarButton = styled(Button)({
+    margin: 'auto',
+    padding: '1 12 1 12',
+    textDecoration: 'none',
+    textTransform:'none',
+    borderRadius: '124.46px',
+    color: 'white',
+    gap:5,
+    fontsize:'22px',
+    fontWeight:500,
+    background: theme.palette.primary.main,
+    boxShadow: '-6.22302px -6.22302px 18.6691px #3B4451, 3px 3px 8px #000000',
+    overflow: 'hidden',
+})
+
 
 
 
@@ -69,4 +84,33 @@ export const  StyledCustomDrawer = styled(Drawer)({
   },
 })
 
+export const ExtendedMenuStyledBtn = styled(Button)({
+    color:'white',
+    textTransform:'none',
+    gap:1,
+    textAlign:'start',
+    paddingLeft:0,
+    margin:0,
+})
+
+export const ExtendedMenuBox = styled(Box)({
+    margin:'60px -150px auto',
+    width:'261px',
+    display:'flex',
+    flexDirection:'column',
+    position:'absolute',
+    boxShadow: '-5px -5px 15px #3B4451, 3px 3px 8px #000000',
+    overflow:'hidden',
+    borderRadius: '22px',
+    background:theme.palette.primary.main,
+})
+
+
+export const ExtendedMenuContainer = styled(Box)({
+    margin:'auto',
+    display:'flex',
+    bgcolor:'red',
+    flexDirection:'row',
+    justifyContent:'space-between',
+})
 
